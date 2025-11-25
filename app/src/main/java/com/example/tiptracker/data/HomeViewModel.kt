@@ -8,14 +8,8 @@ import com.example.tiptracker.data.TipRepository
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: TipRepository
+    private val repository: TipRepository =
+        TipRepository(TipDatabase.getDatabase(application).tipDao())
 
-    val tips = run {
-        repository.tips.asLiveData()
-    }
-
-    init {
-        val dao = TipDatabase.getDatabase(application).tipDao()
-        repository = TipRepository(dao)
-    }
+    val tips = repository.tips.asLiveData()
 }
