@@ -25,6 +25,10 @@
             android:name=".ui.add.AddTipActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.summary.DailySummaryActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

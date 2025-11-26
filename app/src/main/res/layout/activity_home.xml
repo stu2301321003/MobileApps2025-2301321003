@@ -3,11 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Total for today -->
+    <TextView
+        android:id="@+id/tvTodayTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total today: 0.00 лв"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTips"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="80dp"/>
+        android:layout_below="@id/tvTodayTotal"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddTip"
@@ -17,5 +27,14 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="24dp"
         android:src="@android:drawable/ic_input_add" />
+
+    <Button
+        android:id="@+id/btnDailySummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily Summary"
+        android:layout_margin="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>
