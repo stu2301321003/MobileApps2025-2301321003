@@ -12,7 +12,7 @@ class AddTipViewModel(application: Application) : AndroidViewModel(application) 
     private val repository: TipRepository
 
     init {
-        val dao = TipDatabase.getDatabase(application).tipDao()
+        val dao = TipDatabase.Companion.getDatabase(application).tipDao()
         repository = TipRepository(dao)
     }
 

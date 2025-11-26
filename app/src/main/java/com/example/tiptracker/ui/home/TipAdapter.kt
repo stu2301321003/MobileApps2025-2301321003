@@ -8,7 +8,9 @@ import com.example.tiptracker.databinding.ItemTipBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class TipAdapter : RecyclerView.Adapter<TipAdapter.TipViewHolder>() {
+class TipAdapter(
+    private val onDelete: (Tip) -> Unit
+) : RecyclerView.Adapter<TipAdapter.TipViewHolder>() {
 
     private var items: List<Tip> = emptyList()
 
@@ -37,7 +39,12 @@ class TipAdapter : RecyclerView.Adapter<TipAdapter.TipViewHolder>() {
         val date = Date(tip.timestamp)
         val formatter = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
         holder.binding.tvDate.text = formatter.format(date)
+
+        holder.binding.btnDelete.setOnClickListener {
+            onDelete(tip)
+        }
     }
 
     override fun getItemCount() = items.size
 }
+
