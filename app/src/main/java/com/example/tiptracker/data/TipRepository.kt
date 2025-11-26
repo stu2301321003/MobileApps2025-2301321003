@@ -7,4 +7,8 @@ class TipRepository(private val dao: TipDao) {
     suspend fun addTip(amount: Double) {
         dao.insertTip(Tip(amount = amount))
     }
+
+    suspend fun deleteTip(tip: Tip) {
+        dao.deleteTip(tip)
+    }
 }
